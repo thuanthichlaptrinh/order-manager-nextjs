@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Order Manager - Client
 
-## Getting Started
+Frontend application cho hệ thống quản lý đơn hàng, được xây dựng với Next.js 16, React 19 và Tailwind CSS v4.
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+-   **Framework:** [Next.js 16](https://nextjs.org) (App Router)
+-   **UI:** React 19 + TypeScript
+-   **Styling:** Tailwind CSS v4 + shadcn/ui
+-   **Icons:** Lucide React
+-   **Fonts:** Geist Sans & Geist Mono
+
+## Cấu trúc dự án
+
+```
+client/
+├── app/              # Next.js App Router
+│   ├── globals.css   # Tailwind & theme config
+│   ├── layout.tsx    # Root layout
+│   └── page.tsx      # Homepage
+├── components/       # React components
+├── lib/             # Utilities (cn, utils)
+├── public/          # Static assets
+└── components.json  # shadcn/ui config
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Cài đặt
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Cài dependencies
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Chạy dev server
+npm run dev
+```
 
-## Learn More
+Mở [http://localhost:3000](http://localhost:3000) để xem ứng dụng.
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run dev      # Chạy development server
+npm run build    # Build production
+npm run start    # Chạy production server
+npm run lint     # Lint code
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## shadcn/ui Components
 
-## Deploy on Vercel
+Thêm components từ shadcn/ui:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npx shadcn@latest add button
+npx shadcn@latest add card
+# ... các components khác
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Tùy chỉnh Theme
+
+Chỉnh sửa theme trong `app/globals.css`:
+
+```css
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    /* Thêm custom colors, fonts... */
+}
+```
+
+## API Integration
+
+Backend API chạy ở `../server/` - xem [server/README.md](../server/Readme.md) để biết thêm chi tiết.
